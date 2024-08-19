@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowBack, VolumeUp } from "@mui/icons-material";
 import Stack from '@mui/material/Stack';
-import { size } from "lodash";
 
 
 const Learning = () => {
@@ -27,7 +26,7 @@ const Learning = () => {
             <VolumeUp style={{color: "red"}}/>
         </Stack>
         <br/>
-        <Button onClick={() => {count === 7 ? navigate("/quiz"): nextHandler()}} variant="contained" color="error" fullWidth>{count === 7 ? "text" : "Next"}</Button>
+        <Button onClick={() => {count === 7 ? navigate(`/quiz?language=${params}`): nextHandler()}} variant="contained" color="error" fullWidth>{count === 7 ? "text" : "Next"}</Button>
     </Container>
 };
 
