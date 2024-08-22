@@ -1,8 +1,9 @@
 import { Button, Container } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowBack, VolumeUp } from "@mui/icons-material";
 import Stack from '@mui/material/Stack';
+import { generateWords } from "../utils/features";
 
 
 const Learning = () => {
@@ -13,6 +14,12 @@ const Learning = () => {
     const nextHandler = (): void => {
         setCount((prev) => prev + 1);
     }
+
+    useEffect(() => {
+        generateWords(params).then(() => {
+            console.log('worked');
+        });
+    }, []);
     return <Container maxWidth="sm">
         <Button onClick={count === 0? () => navigate("/") : () => setCount((prev) => prev-1)}>
         <ArrowBack />

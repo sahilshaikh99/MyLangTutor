@@ -25,7 +25,7 @@ const Quiz = () => {
         </Button>
         <h1>{param} Language Quiz</h1>
         <hr />
-        <Stack direction="row" spacing={2}   sx={{ fontSize: '20px', marginTop: "20px", fontWeight: "bold"}}>
+        <Stack direction="row" spacing={2} sx={{ fontSize: '20px', marginTop: "20px", fontWeight: "bold"}}>
             <p>{count + 1}:</p>
             <p>Sample</p>
         </Stack>
