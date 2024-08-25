@@ -7,13 +7,12 @@ export const generateWords = async (langParam: LangType) => {
         
         const wordsArray:string[] = Array.isArray(words) ? words : [words];
         
-        const allWords = wordsArray.map((i) => {
-            {
+        const allWords = await wordsArray.map((i) => {
+            return {
                 Text: i
             }
         })
         
-        console.log(allWords)
        const data = await axios.post('https://microsoft-translator-text.p.rapidapi.com/translate', allWords, { params:{
         to: 'hi',
         'api-version': '3.0',
@@ -24,11 +23,11 @@ export const generateWords = async (langParam: LangType) => {
             'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com',
             'Content-Type': 'application/json'
         }});
+        console.log(data);
 
-    }catch(error){
-        console.log(error);
-        throw new Error("Something went wrong");
-    }
-
+        }catch(error){
+            console.log(error);
+            throw new Error("Something went wrong");
+        }
 
 }
