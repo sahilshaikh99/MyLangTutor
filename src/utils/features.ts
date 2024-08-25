@@ -12,13 +12,11 @@ export const generateWords = async (langParam: LangType) => {
                 Text: i
             }
         })
-        .map(i => ({
-            Text: i
-        }));
-
+        
+        console.log(allWords)
        const data = await axios.post('https://microsoft-translator-text.p.rapidapi.com/translate', allWords, { params:{
-            'to[0]': langParam,
-            'api-version': '3.0',
+        to: 'hi',
+        'api-version': '3.0',
             profanityAction: 'NoAction',
             textType: 'plain'
         }, headers:{
