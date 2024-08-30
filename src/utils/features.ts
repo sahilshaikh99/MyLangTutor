@@ -1,5 +1,15 @@
 import axios from "axios";
 import { generate } from "random-words";
+import _ from "lodash";
+
+const generateOptions = (words: { Text: string }[], index: number):string[] =>  {
+    const correctAnswer: string = words[index].Text;
+    const incorrectOption = words.filter((i) => i.Text !== correctAnswer);
+    const otherOptions: string[] = _.sampleSize(incorrectOption, 3).map((i) => i.Text);
+
+    const finalOptions: string[] = _.shuffle([...otherOptions, correctAnswer]);
+    return finalOptions;
+}
 
 export const generateWords = async (langParam: LangType): Promise<WordType[]> => {
     try{
@@ -27,10 +37,11 @@ export const generateWords = async (langParam: LangType): Promise<WordType[]> =>
 
         const fetchedData: FetchDataType[] = data.data;
         const finalData:WordType[] = fetchedData.map((i, index) => {
+            const options = generateOptions(allWords, index); 
             return {
                 word: i.translations[0].text,
                 meaning: words[index],
-                options: ["abc"]
+                options: options
             }
         }) 
 
