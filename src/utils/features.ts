@@ -52,3 +52,14 @@ export const generateWords = async (langParam: LangType): Promise<WordType[]> =>
         }
 
 }
+
+export const matchResult = (arr1: string[], arr2: string[]):number => {
+    if (arr1.length !== arr2.length) throw new Error("Arrays are not equal");
+
+    let matchCount:number = 0;
+
+    for(let i=0; i<arr1.length; i++){
+        if(arr1[i] == arr2[i]) matchCount++;
+    }
+return matchCount;
+}

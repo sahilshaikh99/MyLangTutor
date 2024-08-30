@@ -24,9 +24,8 @@ const Quiz = () => {
     }
 
     useEffect(() =>{
-        if(count+1 > words.length) navigation('./result');
-        console.log(result);
         dispatch(getResult(result));
+        if(count+1 > words.length) navigation('/result');
     },[result]);
 
     const param = useSearchParams()[0].get("language") as LangType;
@@ -57,7 +56,7 @@ const Quiz = () => {
             </RadioGroup>
             </FormControl>
         <br/>
-        <Button onClick={() => {count+1 === words.length ? navigation("/result"): nextHandler()}} variant="contained" color="error" fullWidth>{count === 7 ? "text" : "Next"}</Button>
+        <Button onClick={() => nextHandler()} variant="contained" color="error" fullWidth>{count === 7 ? "text" : "Next"}</Button>
     </Container>
 };
 
