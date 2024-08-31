@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 
-const pages = ['Home', 'Pricing'];
+const pages = ['Home'];
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -80,7 +80,7 @@ const Header = () => {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center" component="a" href="/">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -110,6 +110,7 @@ const Header = () => {
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
+                  component="a" href="/"
                 >
                   {page}
                 </Button>

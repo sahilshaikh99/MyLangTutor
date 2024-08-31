@@ -1,7 +1,7 @@
 import { Button, Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowBack, VolumeUp } from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
 import Stack from '@mui/material/Stack';
 import { generateWords } from "../utils/features";
 import { useDispatch } from "react-redux";
@@ -44,7 +44,6 @@ const Learning = () => {
             <p>{count + 1}:</p>
             <p>{words[count]?.word}{" ->"}</p>
             <p>{words[count]?.meaning}</p>
-            <VolumeUp style={{color: "red"}}/>
         </Stack>
         <br/>
         <Button onClick={() => {count === words.length-1 ? navigate(`/quiz?language=${params}`): nextHandler()}} variant="contained" color="error" fullWidth>{count === 7 ? "text" : "Next"}</Button>
