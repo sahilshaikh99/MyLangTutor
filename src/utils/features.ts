@@ -2,6 +2,7 @@ import axios from "axios";
 import { generate } from "random-words";
 import _ from "lodash";
 
+//This is function to generate options randomly
 const generateOptions = (words: { Text: string }[], index: number):string[] =>  {
     const correctAnswer: string = words[index].Text;
     const incorrectOption = words.filter((i) => i.Text !== correctAnswer);
@@ -11,6 +12,7 @@ const generateOptions = (words: { Text: string }[], index: number):string[] =>  
     return finalOptions;
 }
 
+//This function fetch random words from microsoft translation api
 export const generateWords = async (langParam: LangType): Promise<WordType[]> => {
     try{
         const words = generate(8);
@@ -53,6 +55,7 @@ export const generateWords = async (langParam: LangType): Promise<WordType[]> =>
 
 }
 
+//This is to match answer with actual answers to show on result page
 export const matchResult = (arr1: string[], arr2: string[]):number => {
     if (arr1.length !== arr2.length) throw new Error("Arrays are not equal");
 
