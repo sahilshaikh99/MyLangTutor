@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom';
 
 
-
+//Home page
 const Home = () => {
 
     const navigate = useNavigate();

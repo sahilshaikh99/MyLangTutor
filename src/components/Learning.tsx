@@ -9,6 +9,7 @@ import { clearState, getWordsError, getWordsRequest, getWordsSuccess } from "../
 import { useSelector } from 'react-redux';
 import Loader from "./Loader";
 
+//Learning Page
 const Learning = () => {
     const [count, setCount] = useState<number>(0);
     const params = useSearchParams()[0].get("language") as LangType;

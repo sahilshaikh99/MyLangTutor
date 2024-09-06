@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import { useDispatch, useSelector } from "react-redux";
 import { getResult } from '../redux/slices';
 
+//Quiz Page
 const Quiz = () => {
     const [result, setResult] = useState<string[]>([]);
     const [count, setCount] = useState<number>(0);
